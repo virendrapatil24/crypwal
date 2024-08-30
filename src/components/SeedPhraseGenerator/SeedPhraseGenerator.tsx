@@ -1,8 +1,12 @@
 import { useState } from "react";
 import styles from "./SeedPhraseGenerator.module.css";
-import { generateMnemonic } from "bip39";
+import { generateMnemonic, mnemonicToSeedSync } from "bip39";
 
-const SeedPhraseGenerator = () => {
+interface SeedGeneratorProps {
+  onSeedGenerated: (seed: Uint8Array) => void;
+}
+
+const SeedPhraseGenerator = ({ onSeedGenerated }: SeedGeneratorProps) => {
   const [mnemonicWords, setMnemonicWords] = useState<string[]>([
     ...Array(12).fill(""),
   ]);
@@ -12,6 +16,8 @@ const SeedPhraseGenerator = () => {
     if (!seedPhraseStatus) {
       const words = await generateMnemonic();
       setMnemonicWords(words.split(" "));
+      const seed = mnemonicToSeedSync(words);
+      onSeedGenerated(seed);
       setSeedPhraseStatus(true);
     }
   };
