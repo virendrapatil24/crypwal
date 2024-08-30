@@ -1,0 +1,5 @@
+
+.nav {
+    grid-column: span 2;
+    padding-left: 100px;
+}

@@ -1,0 +1,34 @@
+import { useState } from "react";
+import styles from "./SeedPhraseGenerator.module.css";
+import { generateMnemonic } from "bip39";
+
+const SeedPhraseGenerator = () => {
+  const [mnemonicWords, setMnemonicWords] = useState<string[]>([
+    ...Array(12).fill(""),
+  ]);
+  const [seedPhraseStatus, setSeedPhraseStatus] = useState(false);
+
+  const generateMnemonicWords = async () => {
+    if (!seedPhraseStatus) {
+      const words = await generateMnemonic();
+      setMnemonicWords(words.split(" "));
+      setSeedPhraseStatus(true);
+    }
+  };
+
+  return (
+    <div className={styles.seed_phrase}>
+      <button onClick={generateMnemonicWords}>Generate Seed Phrase</button>
+      <div className={styles.seed_phrase_grid}>
+        {seedPhraseStatus &&
+          mnemonicWords.map((mnemonicWord, index) => (
+            <div key={`mnemonic-word-${index}`}>
+              {index + 1}. {mnemonicWord}
+            </div>
+          ))}
+      </div>
+    </div>
+  );
+};
+
+export default SeedPhraseGenerator;
