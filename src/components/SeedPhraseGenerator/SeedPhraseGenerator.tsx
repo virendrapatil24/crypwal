@@ -4,9 +4,13 @@ import { generateMnemonic, mnemonicToSeedSync } from "bip39";
 
 interface SeedGeneratorProps {
   onSeedGenerated: (seed: Buffer) => void;
+  isSeedGenerated: (status: boolean) => void;
 }
 
-const SeedPhraseGenerator = ({ onSeedGenerated }: SeedGeneratorProps) => {
+const SeedPhraseGenerator = ({
+  onSeedGenerated,
+  isSeedGenerated,
+}: SeedGeneratorProps) => {
   const [mnemonicWords, setMnemonicWords] = useState<string[]>([
     ...Array(12).fill(""),
   ]);
@@ -18,6 +22,7 @@ const SeedPhraseGenerator = ({ onSeedGenerated }: SeedGeneratorProps) => {
       setMnemonicWords(words.split(" "));
       const seed = mnemonicToSeedSync(words);
       onSeedGenerated(seed);
+      isSeedGenerated(true);
       setSeedPhraseStatus(true);
     }
   };

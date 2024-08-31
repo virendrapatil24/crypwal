@@ -7,13 +7,22 @@ import EthereumWalletGenerator from "./components/EthereumWalletGenerator/Ethere
 
 function App() {
   const [seed, setSeed] = useState<Buffer>(Buffer.alloc(0));
+  const [seedGenerated, setSeedGenerated] = useState(false);
+
   return (
     <>
       <div className="container">
         <NavBar />
-        <SeedPhraseGenerator onSeedGenerated={(seed) => setSeed(seed)} />
-        <SolanaWalletGenerator seed={seed} />
-        <EthereumWalletGenerator seed={seed} />
+        <SeedPhraseGenerator
+          onSeedGenerated={(seed) => setSeed(seed)}
+          isSeedGenerated={(status) => setSeedGenerated(status)}
+        />
+        {seedGenerated && (
+          <>
+            <SolanaWalletGenerator seed={seed} />
+            <EthereumWalletGenerator seed={seed} />
+          </>
+        )}
       </div>
     </>
   );
