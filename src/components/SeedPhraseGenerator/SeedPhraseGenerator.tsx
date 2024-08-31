@@ -29,7 +29,9 @@ const SeedPhraseGenerator = ({
 
   return (
     <div className={styles.seed_phrase}>
-      <button onClick={generateMnemonicWords}>Generate Seed Phrase</button>
+      <button onClick={generateMnemonicWords} disabled={seedPhraseStatus}>
+        {seedPhraseStatus ? "Seed Phrase Generated" : "Generate Seed Phrase"}
+      </button>
       <div className={styles.seed_phrase_grid}>
         {seedPhraseStatus &&
           mnemonicWords.map((mnemonicWord, index) => (
