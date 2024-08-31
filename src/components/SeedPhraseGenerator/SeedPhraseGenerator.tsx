@@ -3,7 +3,7 @@ import styles from "./SeedPhraseGenerator.module.css";
 import { generateMnemonic, mnemonicToSeedSync } from "bip39";
 
 interface SeedGeneratorProps {
-  onSeedGenerated: (seed: Uint8Array) => void;
+  onSeedGenerated: (seed: Buffer) => void;
 }
 
 const SeedPhraseGenerator = ({ onSeedGenerated }: SeedGeneratorProps) => {

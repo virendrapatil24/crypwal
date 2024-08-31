@@ -7,7 +7,7 @@
     /* padding-left: 100px; */
 }
 
-button {
+.seed_phrase button {
     margin: none;
     border: none;
     background: linear-gradient(to right, #79018C, #ad3c98);
@@ -18,7 +18,7 @@ button {
     font-weight: 600;
 }
 
-button:hover {
+.seed_phrase button:hover {
     background: linear-gradient(to right, #ad3c98, #79018C);
   }
 
