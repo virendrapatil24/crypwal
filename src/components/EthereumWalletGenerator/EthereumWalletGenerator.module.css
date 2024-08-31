@@ -1,0 +1,16 @@
+.ethereum_wallet {
+    color: red;
+    margin: 20px auto 0px;
+}
+
+
+.ethereum_wallet button {
+    margin: none;
+    border: none;
+    background: linear-gradient(to right, red, #ad3c98);
+    height: 40px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+}

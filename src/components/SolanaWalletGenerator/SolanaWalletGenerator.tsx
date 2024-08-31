@@ -15,8 +15,8 @@ interface SolanaWallet {
 }
 
 const SolanaWalletGenerator = ({ seed }: seedProps) => {
-  const [solanaWallets, setSolanaWallets] = useState<SolanaWallet[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [solanaWallets, setSolanaWallets] = useState<SolanaWallet[]>([]);
 
   const generateSolanaWallet = () => {
     const path = `m/44'/501'/${currentIndex}'/0'`;
