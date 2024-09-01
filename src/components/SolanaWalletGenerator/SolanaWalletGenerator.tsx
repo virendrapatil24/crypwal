@@ -13,6 +13,7 @@ interface SolanaWallet {
   index: number;
   privateKey: string;
   publicKey: string;
+  privateKeyVisible: boolean;
 }
 
 const SolanaWalletGenerator = ({ seed }: seedProps) => {
@@ -24,7 +25,6 @@ const SolanaWalletGenerator = ({ seed }: seedProps) => {
     const derivedSeed = derivePath(path, seed.toString("hex")).key;
     const secretKey = nacl.sign.keyPair.fromSeed(derivedSeed).secretKey;
     const keypair = Keypair.fromSecretKey(secretKey);
-
     const privateKey = bs58.encode(secretKey);
     const publicKey = keypair.publicKey.toBase58();
     setSolanaWallets((prevWallets) => [
@@ -33,9 +33,15 @@ const SolanaWalletGenerator = ({ seed }: seedProps) => {
         index: currentIndex,
         privateKey: privateKey,
         publicKey: publicKey,
+        privateKeyVisible: false,
       },
     ]);
     setCurrentIndex(currentIndex + 1);
+  };
+
+  const deleteWallet = (idx: number) => {
+    const updatedWallets = solanaWallets.filter((_, index) => index != idx);
+    setSolanaWallets(updatedWallets);
   };
 
   return (
@@ -46,10 +52,19 @@ const SolanaWalletGenerator = ({ seed }: seedProps) => {
           className={styles.card_container}
           id={"wallet-id-" + solanaWallet.index}
         >
-          <div className={styles.wallet_number}>Wallet {index + 1}</div>
+          <div className={styles.header}>
+            <span>Wallet {index + 1}</span>
+            <span className={styles.delete} onClick={() => deleteWallet(index)}>
+              X
+            </span>
+          </div>
           <div className={styles.card_section}>
             <div className={styles.card_label}>Private Key:</div>
-            <div className={styles.card_value}>{solanaWallet.privateKey}</div>
+            <div className={styles.card_value}>
+              {solanaWallet.privateKeyVisible
+                ? solanaWallet.privateKey
+                : "**************************************************"}
+            </div>
           </div>
           <div className={styles.card_section}>
             <div className={styles.card_label}>Public Key:</div>
