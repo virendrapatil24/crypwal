@@ -1,15 +1,20 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Inter, -apple-system, "system-ui", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     line-height: 1.5;
     font-weight: 400;
     width: 100%;
   
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background: linear-gradient(#160040, #4C0070);
+    color: #fff;
+    /* background: linear-gradient(#160040, #4C0070); */
+    background-color: #1f2033;
   
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+body {
+  margin: 0;
+}

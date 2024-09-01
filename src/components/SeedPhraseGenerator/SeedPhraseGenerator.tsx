@@ -30,7 +30,7 @@ const SeedPhraseGenerator = ({
   return (
     <div className={styles.seed_phrase}>
       <button onClick={generateMnemonicWords} disabled={seedPhraseStatus}>
-        {seedPhraseStatus ? "Seed Phrase Generated" : "Generate Seed Phrase"}
+        Generate Seed Phrase
       </button>
       <div className={styles.seed_phrase_grid}>
         {seedPhraseStatus &&

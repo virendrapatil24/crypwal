@@ -1,16 +1,33 @@
 .ethereum_wallet {
-    color: red;
-    margin: 20px auto 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 .ethereum_wallet button {
     margin: none;
     border: none;
-    background: linear-gradient(to right, red, #ad3c98);
-    height: 40px;
-    padding: 8px;
-    border-radius: 8px;
-    font-size: 20px;
+    /* background-image: linear-gradient(281deg, #420be6, #a16bb3); */
+    background-color: #a16bb3;
+    padding: 14px 50px;
+    border-radius: 40px;
+    font-size: 16px;
     font-weight: 600;
+    cursor: pointer;
+}
+
+.ethereum_wallet div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100px;
+    background-color: #333353;
+    border: 1px solid #414164;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
 }
