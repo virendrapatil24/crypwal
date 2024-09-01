@@ -16,12 +16,12 @@
     cursor: pointer;
 }
 
-.solana_wallet div {
-    display: flex;
+.card_container {
+    /* display: flex;
     align-items: center;
-    justify-content: center;
-    width: 80%;
-    height: 100px;
+    justify-content: center; */
+    width: 550px;
+    height: auto;
     background-color: #333353;
     border: 1px solid #414164;
     border-radius: 5px;
@@ -29,4 +29,50 @@
     font-size: 16px;
     font-weight: bold;
     text-align: center;
+    padding: 10px;
+}
+
+.wallet_number {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+}
+
+.card_section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card_label {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.card_value {
+    font-weight: 400;
+    font-size: 16px;
+    color: #666;
+    margin-top: 4px;
+    padding: 6px 8px;
+    background-color: #f1f1f1;
+    border-radius: 6px;
+    width: 400px; /* Limit the width of the key display */
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden; /* Hides the overflowed text */
+    overflow-x: auto;
+    scrollbar-width: none; 
+    display: flex;
+}
+
+.balance {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 18px;
+    font-weight: 700;
+    color: #28a745;
+    margin-top: 12px;
 }

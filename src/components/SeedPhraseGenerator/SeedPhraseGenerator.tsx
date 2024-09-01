@@ -32,14 +32,16 @@ const SeedPhraseGenerator = ({
       <button onClick={generateMnemonicWords} disabled={seedPhraseStatus}>
         Generate Seed Phrase
       </button>
-      <div className={styles.seed_phrase_grid}>
-        {seedPhraseStatus &&
-          mnemonicWords.map((mnemonicWord, index) => (
-            <div key={`mnemonic-word-${index}`}>
-              {index + 1}. {mnemonicWord}
-            </div>
-          ))}
-      </div>
+      {seedPhraseStatus && (
+        <div className={styles.seed_phrase_grid}>
+          {seedPhraseStatus &&
+            mnemonicWords.map((mnemonicWord, index) => (
+              <div key={`mnemonic-word-${index}`}>
+                {index + 1}. {mnemonicWord}
+              </div>
+            ))}
+        </div>
+      )}
     </div>
   );
 };
