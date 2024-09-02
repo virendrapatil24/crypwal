@@ -27,16 +27,25 @@
     display: grid;
     width: 40%;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    margin: 20px;
+    grid-template-rows: repeat(4, 1fr);
+    margin: 0px 20px;
     gap: 10px;
-    padding: 20px;
+    padding: 10px 20px 20px;
     background-color: #282842;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 
-.seed_phrase_grid div {
+.seed_phrase_header {
+    grid-column: span 4;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+.seed_phrase_grid_element {
     display: flex;
     align-items: center;
     justify-content: center;
