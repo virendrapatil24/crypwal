@@ -37,7 +37,7 @@ const SolanaWalletGenerator = ({ seed }: seedProps) => {
         privateKey: privateKey,
         publicKey: publicKey,
         balance: balance,
-        privateKeyVisible: false,
+        privateKeyVisible: true,
       },
     ]);
     setCurrentIndex(currentIndex + 1);
